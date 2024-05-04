@@ -1,9 +1,6 @@
-// class based component.
 import React from "react";
-
 class UserClass extends React.Component {
   constructor(props) {
-    // console.log(this.props.name + " constructor")
     super(props);
 
     this.state = {
@@ -15,8 +12,6 @@ class UserClass extends React.Component {
   }
 
   async componentDidMount() {
-    // console.log(this.props.name + " componentDidMount")
-
     const data = await fetch("https://api.github.com/users/kunalanand2001");
     const json = await data.json();
 
@@ -27,14 +22,11 @@ class UserClass extends React.Component {
     console.log(json);
   }
 
-  //   componentDidUpdate(){
-  //     console.log("this.componentDidMount called");
-  //   }
+  componentDidUpdate() {}
 
   render() {
-    // console.log(this.props.name + " render")
     const { name, location, avatar_url, login } = this.state.userInfo;
-    // debugger;
+
     return (
       <div className="user-card">
         <img className="profile-pic" src={avatar_url} />

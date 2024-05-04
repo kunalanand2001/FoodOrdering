@@ -30,15 +30,12 @@ const Body = () => {
     );
   };
 
-  //   console.log("body Rendered");
-
   const onlineStatus = useOnlineStatus();
 
   if (onlineStatus === false) {
     return <h1>Your are offline, please check your internet connection !!</h1>;
   }
 
-  //   Conditional Rendering
   return listOfRestaurants.length === 0 ? (
     <Shimmer />
   ) : (
