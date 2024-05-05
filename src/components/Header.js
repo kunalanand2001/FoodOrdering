@@ -6,34 +6,34 @@ const Header = () => {
   const onlineStatus = useOnlineStatus();
 
   return (
-    <div className="header">
-      <div className="logo-container">
-        <img className="logo" src={LOGO_URL} />
+    <div className="flex justify-between bg-orange-200 shadow-md m-2">
+      <div className="">
+        <img className="w-36" src={LOGO_URL} />
       </div>
-      <div className="nav-items">
-        <ul>
-          <li>Online Status :{onlineStatus ? "🟢" : "🔴"}</li>
-          <li>
+      <div className="flex items-center">
+        <ul className="m-4 p-4 flex">
+          <li className="px-4 italic">{onlineStatus ? "Online 🟢" : "Offline 🔴"}</li>
+          <li className="px-4 font-bold">
             <Link className="link" to="/">
               Home
             </Link>
           </li>
-          <li>
+          <li className="px-4 font-bold">
             <Link className="link" to="/about">
               About Us
             </Link>
           </li>
-          <li>
+          <li className="px-4 font-bold">
             <Link className="link" to="contact">
               Contact Us
             </Link>
           </li>
-          <li>
+          <li className="px-4 font-bold">
             <Link className="link" to="grocery">
               Grocery
             </Link>
           </li>
-          <li>Cart (not implemented)</li>
+          <li className="px-4 font-bold">Cart (not implemented)</li>
         </ul>
       </div>
     </div>
