@@ -1,4 +1,4 @@
-import RestaurantCard from "./RestaurantCard";
+import RestaurantCard, { withTopRatedLabel } from "./RestaurantCard";
 import { useEffect, useState } from "react";
 import Shimmer from "./Shimmer";
 import { Link } from "react-router-dom";
@@ -8,6 +8,8 @@ const Body = () => {
   const [listOfRestaurants, setlistOfRestaurants] = useState([]);
   const [filteredRestaurants, setFilteredrestaurants] = useState([]);
   const [searchText, setSearchText] = useState("");
+
+  const RestaurantCardTopRated = withTopRatedLabel(RestaurantCard);
 
   useEffect(() => {
     fetchData();
@@ -19,7 +21,7 @@ const Body = () => {
     );
 
     const jsonData = await data.json();
-    console.log(jsonData);
+
     setlistOfRestaurants(
       jsonData?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle
         ?.restaurants
@@ -51,8 +53,6 @@ const Body = () => {
           <button
             className="m-4 px-4 py-2 bg-green-200 rounded-md"
             onClick={() => {
-              console.log(searchText);
-
               const restaurnatsAfterFilter = listOfRestaurants.filter((res) =>
                 res.info.name.toLowerCase().includes(searchText.toLowerCase())
               );
@@ -68,7 +68,7 @@ const Body = () => {
             className="filter-btn px-4 py-2 bg-blue-100 rounded-md"
             onClick={() => {
               const filtededList = filteredRestaurants.filter(
-                (res) => res.info.avgRating >= 4.2
+                (res) => res.info.avgRating >= 4.3
               );
               setFilteredrestaurants(filtededList);
             }}
@@ -93,7 +93,11 @@ const Body = () => {
             className="link"
             to={"/restaurants/" + restaurant.info.id}
           >
-            <RestaurantCard resData={restaurant} />
+            {restaurant.info.avgRating >= 4.3 ? (
+              <RestaurantCardTopRated resData={restaurant} />
+            ) : (
+              <RestaurantCard resData={restaurant} />
+            )}
           </Link>
         ))}
       </div>
