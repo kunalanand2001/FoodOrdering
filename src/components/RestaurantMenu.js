@@ -35,7 +35,7 @@ const RestaurantMenu = () => {
         {cuisines.join(", ")} - ₹{costForTwo / 100} for two
       </p>
       {dishCategories.map((category) => (
-        <DishCategory categoryData={category?.card?.card} />
+        <DishCategory key={category?.card?.card.title} categoryData={category?.card?.card} />
       ))}
     </div>
   );
