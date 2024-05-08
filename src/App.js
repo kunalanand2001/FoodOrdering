@@ -20,10 +20,10 @@ const AppLayout = () => {
 
   return (
     <div className="app">
-      <UserContext.Provider value={{ loggedInUser: userName }}>
+      <UserContext.Provider value={{ loggedInUser: userName, setUserName }}>
         <Header />
+        <Outlet />
       </UserContext.Provider>
-      <Outlet />
     </div>
   );
 };

@@ -39,7 +39,13 @@ const Header = () => {
               Grocery
             </Link>
           </li>
-          <li className="px-4 font-bold">{UserContextData.loggedInUser}</li>
+          <div className="flex px-4">
+            <li>User Name -</li>
+            <li className="font-bold italic">
+              {" "}
+              {UserContextData.loggedInUser}
+            </li>
+          </div>
           <li className="px-4 font-bold">Cart (not implemented)</li>
         </ul>
       </div>

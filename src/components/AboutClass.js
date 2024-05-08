@@ -12,12 +12,16 @@ class About extends React.Component {
   render() {
     return (
       <div>
-        <UserClass name={"Kunal Anand"} location={"Dewas"} />
-        <div>
+        <div className="ml-4 p-4">
           <UserContext.Consumer>
-            {(data) => <h1 className="font-bold">{data.loggedInUser}</h1>}
+            {(data) => (
+              <h1 className="font-bold italic">
+                Logged In User Name : {data.loggedInUser}
+              </h1>
+            )}
           </UserContext.Consumer>
         </div>
+        <UserClass name={"Kunal Anand"} location={"Dewas"} />
       </div>
     );
   }
