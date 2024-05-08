@@ -8,10 +8,6 @@ const Error = () => {
     <div>
       <h1>Oops !!!</h1>
       <h3>Something went wrong !!!</h3>
-      <h4>{err.status}</h4>
-      <h4>
-        {err.statusText} , {err.error.message}
-      </h4>
     </div>
   );
 };

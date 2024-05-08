@@ -1,11 +1,13 @@
 import ItemList from "./ItemList";
 import { useState } from "react";
 
-const DishCategory = ({ categoryData }) => {
-  const [showItemList, setShowItemList] = useState(false);
-
+const DishCategory = ({
+  categoryData,
+  showItemList,
+  setSelectedCategoryIndex,
+}) => {
   const handleClick = () => {
-    setShowItemList(!showItemList);
+    setSelectedCategoryIndex();
   };
 
   return (
@@ -19,7 +21,7 @@ const DishCategory = ({ categoryData }) => {
           <span className="font-bold text-lg">
             {categoryData.title} ({categoryData.itemCards.length})
           </span>
-          <span>⬇️</span>
+          <span>{showItemList ? "⬆️" : "⬇️"}</span>
         </div>
         {/* dropdown body */}
 
