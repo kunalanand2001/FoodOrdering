@@ -24,22 +24,22 @@ const Header = () => {
             {onlineStatus ? "Online 🟢" : "Offline 🔴"}
           </li>
           <li className="px-4 font-bold">
-            <Link className="link" to="/">
+            <Link to="/">
               Home
             </Link>
           </li>
           <li className="px-4 font-bold">
-            <Link className="link" to="/about">
+            <Link to="/about">
               About Us
             </Link>
           </li>
           <li className="px-4 font-bold">
-            <Link className="link" to="contact">
+            <Link to="contact">
               Contact Us
             </Link>
           </li>
           <li className="px-4 font-bold">
-            <Link className="link" to="grocery">
+            <Link to="grocery">
               Grocery
             </Link>
           </li>
@@ -47,7 +47,9 @@ const Header = () => {
             <li className="italic">User Name -</li>
             <li className="font-bold"> {UserContextData.loggedInUser}</li>
           </div>
-          <li className="px-4 font-bold">Cart ({cartItems.length} Items)</li>
+          <li className="px-4 font-bold">
+            <Link to="cart">Cart ({cartItems.length} Items)</Link>
+          </li>
         </ul>
       </div>
     </div>
